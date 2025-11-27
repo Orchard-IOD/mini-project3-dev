@@ -6,8 +6,7 @@ Stack:
 + Express 
 + Mongoose 
 + CORS 
-+ React 
-+ React-Hook-Form 
+
 
 App requirements:
 + User enters ingredients in a React form.
