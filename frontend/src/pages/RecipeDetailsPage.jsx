@@ -1,9 +1,12 @@
 import RecipeDetails from "../components/RecipeDetails"
+import { BackButton } from "../components/BackButton";
+
 
 export function RecipeDetailsPage() {
     return (
         <>
-            <RecipeDetails />
+        <BackButton />
+        <RecipeDetails />
         </>
     )
 }
