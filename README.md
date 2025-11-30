@@ -7,7 +7,6 @@
 + Mongoose 
 + CORS // Allows frontend-backend communication. Browsers block requests between different domains for security.
 + jsonwebtoken //To create a login token that the frontend stores and uses to access protected routes.
-+ bcryptjs //To hash and protect user passwords before saving them in MongoDB.
 + dotenv
 + colors //colors is a small Node.js package that lets you add colours and styles to the text you print in the terminal.
 + nodemon
@@ -20,7 +19,7 @@
 + react-router-dom //Library that allows you to create pages inside a React application.
 
 		backend:
-		npm install express mongoose cors dotenv bcryptjs jsonwebtoken colors
+		npm install express mongoose cors dotenv jsonwebtoken colors
 		npm install --save-dev nodemon
 
 		frontend:
