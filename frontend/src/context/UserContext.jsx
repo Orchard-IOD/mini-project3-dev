@@ -1,22 +1,27 @@
 import React, { createContext, useState, useEffect } from "react";
 
-// create context
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [userName, setUserName] = useState(() => {
-    // load username if exists
-    return localStorage.getItem("userName") || "";
-  });
+  const [userName, setUserName] = useState(() => localStorage.getItem("userName") || "");
 
-  // run on initial omponent render
   useEffect(() => {
-    if (userName) localStorage.setItem("userName", userName);
-    // dependency array, reload comp when userName changes
+    if (userName) {
+      localStorage.setItem("userName", userName);
+    } else {
+      localStorage.removeItem("userName");
+      localStorage.removeItem("token");
+    }
   }, [userName]);
 
+  const logout = () => {
+    setUserName("");  // clears context
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+  };
+
   return (
-    <UserContext.Provider value={{ userName, setUserName }}>
+    <UserContext.Provider value={{ userName, setUserName, logout }}>
       {children}
     </UserContext.Provider>
   );
