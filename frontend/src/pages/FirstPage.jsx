@@ -75,7 +75,28 @@ export function FirstPage() {
 
       {/* Main content */}
       <div style={styles.content}>
-       
+        {/* Feature cards grid */}
+        <div style={styles.features}>
+          
+
+          <div style={styles.featureCard}>
+         
+          </div>
+              
+
+
+          {userName && (
+            <div style={styles.featureCard}>
+              <div style={styles.featureIcon}>👤</div>
+              <h3 style={styles.featureTitle}>Your Profile</h3>
+              <p style={styles.featureDesc}>
+                Welcome back! You're all set to explore
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Action buttons */}
         <div style={styles.buttonContainer}>
           {userName ? (
             <button style={styles.logoutButton} onClick={handleLogout}>
@@ -94,7 +115,7 @@ export function FirstPage() {
               <span style={styles.buttonIcon}>🍳</span>
               Search Recipes
             </Link>
-
+            
             <Link to="/saved" style={styles.actionButton}>
               <span style={styles.buttonIcon}>❤️</span>
               My Saved Recipes
@@ -123,8 +144,7 @@ const styles = {
   container: {
     minHeight: "100vh",
     background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    fontFamily:
-      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     color: "#333",
   },
   header: {
@@ -169,7 +189,16 @@ const styles = {
     gap: "30px",
     marginBottom: "60px",
   },
-
+  featureCard: {
+    background: "white",
+    borderRadius: "20px",
+    padding: "40px 30px",
+    textAlign: "center",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
+    transition: "all 0.3s ease",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
   featureIcon: {
     fontSize: "3rem",
     marginBottom: "20px",
@@ -266,8 +295,7 @@ const styles = {
     width: "300px",
     height: "300px",
     borderRadius: "50%",
-    background:
-      "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
+    background: "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
     top: "-100px",
     left: "-100px",
   },
@@ -276,8 +304,7 @@ const styles = {
     width: "200px",
     height: "200px",
     borderRadius: "50%",
-    background:
-      "linear-gradient(135deg, rgba(245, 101, 101, 0.1) 0%, rgba(237, 100, 166, 0.1) 100%)",
+    background: "linear-gradient(135deg, rgba(245, 101, 101, 0.1) 0%, rgba(237, 100, 166, 0.1) 100%)",
     bottom: "-50px",
     right: "-50px",
   },
@@ -294,30 +321,23 @@ const styles = {
 
 // Add CSS animations
 const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(
-  `
+styleSheet.insertRule(`
   @keyframes wave {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(20deg); }
     75% { transform: rotate(-10deg); }
   }
-`,
-  styleSheet.cssRules.length
-);
+`, styleSheet.cssRules.length);
 
 // Add hover effects
-styleSheet.insertRule(
-  `
+styleSheet.insertRule(`
   .feature-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   }
-`,
-  styleSheet.cssRules.length
-);
+`, styleSheet.cssRules.length);
 
-styleSheet.insertRule(
-  `
+styleSheet.insertRule(`
   .action-button:hover {
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     border-color: #667eea;
@@ -325,19 +345,14 @@ styleSheet.insertRule(
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
-`,
-  styleSheet.cssRules.length
-);
+`, styleSheet.cssRules.length);
 
-styleSheet.insertRule(
-  `
+styleSheet.insertRule(`
   .primary-button:hover, .logout-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
   }
-`,
-  styleSheet.cssRules.length
-);
+`, styleSheet.cssRules.length);
 
 // Add CSS class to feature cards for hover effect
 Object.assign(styles.featureCard, {
